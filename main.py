@@ -1,23 +1,9 @@
-import pandas as pd
-import numpy as np
-
 from Perceptron import Perceptron
+from DataSetUtils import clear_dataset,get_data
 
 DATASET_PATH = "Dataset/breast-cancer-wisconsin.data"
 CLEAN_DATASET_PATH = "Dataset/breast-cancer-wisconsin-clean.csv"
-
-COL_NAMES= [
-    "clump_thickness", # 0
-    "uniformity_cell_size",# 1
-    "uniformity_cell_shape",# 2
-    "marginal_adhesion",# 3
-    "single_epithelial_size",# 4
-    "bare_nuclei",# 5
-    "bland_chromatin",# 6
-    "normal_nucleoli",# 7
-    "mitoses",# 8
-    "class"
-]
+LINEAR_DATASET_PATH = "Dataset/linear_dataset.csv"
 
 WHEIGHTS = [
     0.1,
@@ -31,19 +17,7 @@ WHEIGHTS = [
     0.4
 ]
 
-def clear_dataset():
-    df = pd.read_csv(DATASET_PATH, header=None)
-    df = df.replace("?", np.nan)
-    df = df.apply(pd.to_numeric, errors="coerce")
-    df = df.dropna()
-    df.iloc[:, 10] = df.iloc[:, 10].replace({2: 0, 4: 1}).astype(int)
-    
-    df.drop(df.columns[0], axis=1, inplace=True)
-    
-    df.to_csv(CLEAN_DATASET_PATH, index=False,header=None)
-
-clear_dataset()
-
-df = pd.read_csv('Dataset/linear_dataset.csv', header=None)
-p = Perceptron(df,WHEIGHTS)
+clear_dataset(DATASET_PATH,CLEAN_DATASET_PATH)
+data = get_data(LINEAR_DATASET_PATH)
+p = Perceptron(data,WHEIGHTS)
 p.start()

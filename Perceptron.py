@@ -2,7 +2,7 @@ from pandas import DataFrame
 
 class Perceptron:
    
-    def __init__(self, data: DataFrame, wheights: list[float]):
+    def __init__(self, data: list, wheights: list[float]):
         self.inputs = data
         self.wheights = wheights
         self.max_epochs = float('inf')
@@ -24,10 +24,10 @@ class Perceptron:
     def run_epoch(self):
         corections = 0
 
-        for _, row in self.inputs.iterrows():
-            x = row.values[:-1]         
+        for row in self.inputs:
+            x = row[:-1]         
             predicted_y = self.calculate_y(x)
-            expected_y = row.values[-1]  
+            expected_y = row[-1]  
 
             if predicted_y != expected_y:
                 self.correct_wheights(expected_y, predicted_y, x)
