@@ -53,3 +53,10 @@ class Perceptron:
             self.wheights[i] = self.wheights[i] + (self.n * err * values[i])
 
         self.bias = self.bias + self.n * err
+        
+    def test_wheights(self,values):
+        x = values[:-1]         
+        predicted_y = self.calculate_y(x)
+        expected_y = values[-1]
+        
+        return predicted_y, expected_y
