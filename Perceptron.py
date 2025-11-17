@@ -1,25 +1,20 @@
-from pandas import DataFrame
-
 class Perceptron:
-   
-    def __init__(self, data: list, wheights: list[float]):
+    def __init__(self, data: list, wheights: list[float],bias,n,max_epochs):
         self.inputs = data
         self.wheights = wheights
-        self.max_epochs = float('inf')
+        self.max_epochs = max_epochs
+        self.n = n
+        self.bias = bias
+        
         self.converged = False
         self.epoch = 0
-        self.bias = 1
-        self.n = 0.1
 
     def start(self):
         while self.epoch < self.max_epochs and not self.converged:
             self.run_epoch()
             self.epoch += 1
-
-        if self.converged:
-            print(f"Convergiu em {self.epoch} épocas com os pesos", self.wheights)
-        else:
-            print("Não foi possível convergir")
+            
+        return (self.converged,self.epoch,self.wheights)
 
     def run_epoch(self):
         corections = 0
@@ -35,8 +30,6 @@ class Perceptron:
 
         if corections == 0:
             self.converged = True
-        
-        print(f"Época {self.epoch} finalizada.Correções: {corections}. Pesos atualizado para: {self.wheights}")
 
     def calculate_y(self, values):
         z = self.calculate_z(values)
