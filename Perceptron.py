@@ -1,6 +1,5 @@
 from pandas import DataFrame
 
-
 class Perceptron:
    
     def __init__(self, data: DataFrame, wheights: list[float]):

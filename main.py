@@ -44,6 +44,6 @@ def clear_dataset():
 
 clear_dataset()
 
-df = pd.read_csv(CLEAN_DATASET_PATH, header=None)
+df = pd.read_csv('Dataset/linear_dataset.csv', header=None)
 p = Perceptron(df,WHEIGHTS)
 p.start()
