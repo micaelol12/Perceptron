@@ -9,7 +9,7 @@ class Perceptron:
         self.converged = False
         self.epoch = 0
 
-    def start(self):
+    def train(self):
         while self.epoch < self.max_epochs and not self.converged:
             self.__run_epoch()
             self.epoch += 1

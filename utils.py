@@ -53,3 +53,18 @@ def get_data(input_path) -> list[float]:
     data = [row for row in data if None not in row]
 
     return data
+
+
+def test_acurracy(perceptron,data) -> float:
+    total = len(data)
+    corrects = 0
+    
+    for d in data:
+        predicted,expected = perceptron.test_weights(d)
+        
+        if predicted == expected:
+            corrects += 1
+        else:
+            print(f"Erro no Perceptron - Esperado: {expected}, Encontrado: {predicted}")
+            
+    return corrects / total
