@@ -47,3 +47,7 @@ Foi criado a classe Perceptron que recebe os parâmetros:
 O conjunto de dados foi dividido, reservando-se os últimos 10 registros para a avaliação (dataset de teste). O modelo foi treinado com os dados restantes (dataset de treinamento).
 
 ## Resultados
+
+Os resultados foram bem satisfatórios, foi obtido uma acurácia de 100% com todas as taxas de aprendizado. Porém o número de épocas necessário para convergência alterou muito conforme a taxa de aprendizado.
+
+![alt text](/Docs/image.png)
