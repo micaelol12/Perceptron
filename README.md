@@ -42,5 +42,8 @@ Foi criado a classe Perceptron que recebe os parâmetros:
 4. __learning_rate__, float -> A taxa de aprendizado (α ou η) que define o tamanho do passo na atualização dos pesos.
 5. __max_epochs__, int -> O número máximo de épocas (iterações de treinamento) permitido.
 
+### Treinamento
+
+O conjunto de dados foi dividido, reservando-se os últimos 10 registros para a avaliação (dataset de teste). O modelo foi treinado com os dados restantes (dataset de treinamento).
 
 ## Resultados
