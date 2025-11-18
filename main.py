@@ -1,9 +1,8 @@
 from Perceptron import Perceptron
-from DataSetUtils import clear_dataset, get_data
+from DataSetUtils import get_data
 
-DATASET_PATH = "Dataset/breast-cancer-wisconsin.data"
-CLEAN_DATASET_PATH = "Dataset/breast-cancer-wisconsin-clean.csv"
-LINEAR_DATASET_PATH = "Dataset/linear_dataset.csv"
+DATASET_PATH = "Dataset/breast-cancer-linear.csv"
+
 START_WHEIGHTS = [
     0.1,
     0.2,
@@ -16,17 +15,15 @@ START_WHEIGHTS = [
     0.4
 ]
 
-#clear_dataset(DATASET_PATH, CLEAN_DATASET_PATH)
-
-data = get_data(LINEAR_DATASET_PATH)
+data = get_data(DATASET_PATH)
 test_data = data[-10:]
 train_data = data[:-10] 
 
 p = Perceptron(data=train_data,
                wheights=START_WHEIGHTS,
                bias=1,
-               n=0.1,
-               max_epochs=100)
+               n=1,
+               max_epochs=200)
 
 converged, epoch, wheights = p.start()
 
@@ -40,4 +37,4 @@ if converged:
             print(f"Erro ao testar perceptron, resultado esperado: {expected} e encontrou:{predicted}")
     
 else:
-    print("Não foi possível convergir")
+    print(f"Não foi possível convergir após {epoch} épocas")
