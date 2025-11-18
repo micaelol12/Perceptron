@@ -1,5 +1,6 @@
 import csv
 
+
 def to_number(x):
     try:
         return float(x)
@@ -31,13 +32,14 @@ def clear_dataset(input_path, output_path):
     # remover coluna 0
     for row in data:
         del row[0]
-        
+
     with open(output_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(data)
 
-def get_data(input_path):
-    data = []
+
+def get_data(input_path) -> list[float]:
+    data: list[float] = []
 
     # ler csv manualmente
     with open(input_path, "r") as f:
@@ -49,5 +51,5 @@ def get_data(input_path):
 
     # remover linhas com None
     data = [row for row in data if None not in row]
-    
+
     return data

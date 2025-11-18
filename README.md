@@ -1,7 +1,8 @@
-## TRABALHO PERCEPTRON
+# TRABALHO PERCEPTRON
 
 Aluno: Micael Luan Conti
 
+## Desenvolvimento
 
 ### Dataset
 
@@ -32,3 +33,14 @@ Porém foram necessários alguns tratamentos no dataset para torná-lo __linearm
 [  1   3  12  41  49  61  99 190 216 226 244 251 265 285 306 334 342 419
  474 479]
 
+### Perceptron
+
+Foi criado a classe Perceptron que recebe os parâmetros:
+1. __data__, list[float] -> A lista de dados de entrada (inputs) que o perceptron irá processar.
+2. __weights__, list[float] -> A lista dos pesos iniciais que serão ajustados durante o aprendizado.
+3. __bias__, float -> O valor do viés (bias), que permite deslocar a fronteira de decisão.
+4. __learning_rate__, float -> A taxa de aprendizado (α ou η) que define o tamanho do passo na atualização dos pesos.
+5. __max_epochs__, int -> O número máximo de épocas (iterações de treinamento) permitido.
+
+
+## Resultados
